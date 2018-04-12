@@ -22,6 +22,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <start-class>netgloo.Application</start-class>
     <java.version>1.8</java.version>
+    <releaseRepoUrl>http://192.168.50.251:8081/repository/releases</releaseRepoUrl>
+    <snapshotRepoUrl>http://192.168.50.251:8081/repository/snapshots</snapshotRepoUrl>
+    <deployRepoUrl>${releaseRepoUrl}</deployRepoUrl>
+    <releaseRepoUrl>http://192.168.50.251:8081/repository/releases</releaseRepoUrl>
+    <snapshotRepoUrl>http://192.168.50.251:8081/repository/snapshots</snapshotRepoUrl>
+    <snapshotRepoId>snapshots</snapshotRepoId>
   </properties>
 
   <dependencies>
@@ -40,5 +46,33 @@
     </plugins>
   </build>
 
+  <profiles>
+    <profile>
+      <id>snapshot-deploy-url-override</id>
+      <activation>
+        <property>
+          <name>!version_number</name>
+        </property>
+      </activation>
+      <properties>
+        <deployRepoId>${snapshotRepoId}</deployRepoId>
+        <deployRepoUrl>${snapshotRepoUrl}</deployRepoUrl>
+        <isRelease>false</isRelease>
+      </properties>
+    </profile>
+  </profiles>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>${snapshotRepoId}</id>
+      <name>Snapshots Repository</name>
+      <url>${snapshotRepoUrl}</url>
+    </snapshotRepository>
+    <repository>
+      <id>${releaseRepoId}</id>
+      <name>Releases Repository</name>
+      <url>${releaseRepoUrl}</url>
+    </repository>
+  </distributionManagement>
 </project>
 
