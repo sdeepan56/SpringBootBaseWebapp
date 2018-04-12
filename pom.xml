@@ -23,10 +23,8 @@
     <start-class>netgloo.Application</start-class>
     <java.version>1.8</java.version>
     <releaseRepoUrl>http://192.168.50.251:8081/repository/releases</releaseRepoUrl>
-    <snapshotRepoUrl>http://192.168.50.251:8081/repository/snapshots</snapshotRepoUrl>
+    <snapshotRepoUrl>/Users/dsubramani/ProjectRelated/Jenkins-Local-Snapshots</snapshotRepoUrl>
     <deployRepoUrl>${releaseRepoUrl}</deployRepoUrl>
-    <releaseRepoUrl>http://192.168.50.251:8081/repository/releases</releaseRepoUrl>
-    <snapshotRepoUrl>http://192.168.50.251:8081/repository/snapshots</snapshotRepoUrl>
     <snapshotRepoId>snapshots</snapshotRepoId>
   </properties>
 
